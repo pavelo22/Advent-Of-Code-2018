@@ -18,12 +18,8 @@ def part1(data):
 
 
 def compare_labels(label1, label2):
-    commons = ''
-    for i in range(len(label1)):
-        if label1[i] == label2[i]:
-            commons += label2[i]
-
-    return len(commons) == len(label2) - 1, commons
+    commons = [x for x, y in zip(label1, label2) if x == y]
+    return len(commons) == len(label2) - 1, "".join(commons)
 
 
 def part2(fabric_boxes):
